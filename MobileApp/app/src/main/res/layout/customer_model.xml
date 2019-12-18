@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="5dp"
+
+    android:layout_height="match_parent">
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/playerImage"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="10dp"-->
+            <!--android:src="@drawable/user" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/nameTxt"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_toRightOf="@+id/playerImage"-->
+            <!--android:hint="Name"-->
+            <!--android:padding="10dp"-->
+            <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/MobileNumber"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/playerImage"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:hint="Mobile "-->
+            <!--android:padding="10dp"-->
+            <!--android:textAppearance="?android:attr/textAppearanceMedium" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/nationalNumber"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/MobileNumber"-->
+            <!--android:layout_alignParentRight="false"-->
+            <!--android:hint="NationalNumber"-->
+            <!--android:padding="10dp"-->
+            <!--android:textAppearance="?android:attr/textAppearanceMedium" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/residence"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/MobileNumber"-->
+            <!--android:layout_alignParentRight="false"-->
+            <!--android:hint="residence"-->
+            <!--android:padding="10dp"-->
+            <!--android:textAppearance="?android:attr/textAppearanceMedium" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/cardNumber"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/MobileNumber"-->
+            <!--android:layout_alignParentRight="false"-->
+            <!--android:hint="cardNumber"-->
+            <!--android:padding="10dp"-->
+            <!--android:textAppearance="?android:attr/textAppearanceMedium" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/vehicleNumber"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/MobileNumber"-->
+            <!--android:layout_alignParentRight="false"-->
+            <!--android:hint="vehicleNumber"-->
+            <!--android:padding="10dp"-->
+            <!--android:textAppearance="?android:attr/textAppearanceMedium" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/buttonSavecustomer"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Save" />-->
+
+    <!--</LinearLayout>-->
+</android.support.v7.widget.CardView>

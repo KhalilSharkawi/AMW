@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">AMW Takamol</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!--Config Constant-->
+    <string name="ENGLISH_LANG">en</string>
+    <string name="my_channel">my_channel</string>
+    <string name="channel_id_sticky">location_monitoring_service_default_channel_sticky</string>
+    <!--Config Constant-->
+    <!--API CONSTANTS-->
+    <!--API Functions-->
+    <!--API Functions-->
+    <!--API Param-->
+    <!--API Param-->
+    <!--API Result-->
+    <!--API Result-->
+    <!--API CONSTANTS-->
+
+    <string name="lang">العربية</string>
+    <string name="logout">Logout</string>
+    <string name="login">Sign In</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="password_confirm">Confirm Password</string>
+    <string name="forget_password"><u>Forget your Password?</u></string>
+    <string name="activate">Activate</string>
+    <string name="resend_activation_code">Resend Activation Code</string>
+    <string name="cur_email">Email : </string>
+    <string name="register_again">Register Again?</string>
+    <string name="are_sure_to_re_register">Are you sure to register again</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="activation_done">Activation Done</string>
+    <string name="activation_code_resent_please_wait">Activation code sent .. Please Wait</string>
+    <!-- update app -->
+    <string name="update">Update</string>
+    <string name="later">Later</string>
+    <!--  validate  -->
+    <string name="username_required">Username is required</string>
+    <string name="password_required">Password is required</string>
+    <string name="password_length">Password must be 6 character at least</string>
+    <string name="password_confirm_not_equal_password">Password Confirm is not equal Password</string>
+    <string name="first_name_required">First Name field is required</string>
+    <string name="last_name_required">Last Name field is required</string>
+    <string name="code_required">Activation Code Required</string>
+    <!---  error message -->
+    <string name="fail_try_agian">Fail, Try Again</string>
+    <!-- success message -->
+    <!--applications strings-->
+    <string name="pending">pending</string>
+    <string name="canceled">Canceled</string>
+    <string name="online">Online</string>
+    <string name="permission_rationale">Please grant location permission to start the service</string>
+    <string name="permission_denied_explanation">You have not granted location permission. So the service cannot be started.</string>
+    <string name="settings">settings</string>
+    <string name="title_alert_no_intenet">No internet</string>
+    <string name="msg_alert_no_internet">Please make sure that you have active internet connection.</string>
+    <string name="no_google_playservice_available">No Google Playservice found. Please install it.</string>
+    <string name="btn_label_refresh">Refresh</string>
+    <string name="offline_mode">You\'re offline</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="done">Done</string>
+    <string name="arrived">Arrived</string>
+    <string name="are_you_sure">Are you sure</string>
+    <string name="order_rejected">Order Rejected</string>
+    <string name="order_finished">Order Finished</string>
+    <string name="order_arrived">Order Arrived</string>
+    <string name="order_accepted">Order Accepted</string>
+    <string name="no_order_found">No Order Yet… !</string>
+    <string name="you_offline">You are Offline</string>
+    <string name="orders">Orders</string>
+    <string name="accepted">Accepted</string>
+    <string name="rejected">Rejected</string>
+    <string name="home">Home</string>
+    <string name="enable_location_service">Enable Location Service</string>
+    <string name="open_location_settings">Open Location Settings</string>
+    <string name="new_version_available">New Version is Available</string>
+    <string name="went_wrong">Something Went Wrong</string>
+
+    <string name="register">Register</string>
+    <string name="last_name">Last Name*</string>
+    <string name="mob_number">Mobile Number</string>
+    <string name="welcome_to_the_biggest_space_of_services">Welcome to the biggest space of services</string>
+    <string name="submit">Submit</string>
+    <string name="reset_code_required">Reset Code Required</string>
+    <string name="on_going">On Going</string>
+    <string name="completed">Completed</string>
+    <string name="start_trip">Start Trip</string>
+    <string name="order_on_going">Order on Going</string>
+    <string name="yes">YES</string>
+    <string name="no">No</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="code">Code</string>
+    <string name="retry">Retry</string>
+    <string name="order_at">Order At</string>
+    <string name="your_current_location">Your Current Location</string>
+    <string name="pick_up_location">Pickup Location</string>
+    <string name="destination_location">Destination Location</string>
+    <string name="title_activity_amw_main">AmwMainActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_customer_list">Customers</string>
+    <string name="title_customer_detail">Customer Detail</string>
+    <string name="title_activity_add_customer_fragment">AddCustomerFragment</string>
+    <string name="title_activity_add_customer">AddCustomerActivity</string>
+</resources>

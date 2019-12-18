@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fafafa">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/logo_pic"
+                android:layout_marginTop="100dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/activate"
+                android:textColor="@android:color/black"
+                android:layout_margin="16dp"
+                android:padding="8dp"/>
+
+            <EditText
+                android:id="@+id/etvalid"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                android:textAllCaps="true"/>
+
+
+            <Button
+                android:onClick="ActivationAction"
+                android:text="@string/activate"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_pink_button"
+                android:textColor="#FFFFFF"
+                android:layout_margin="16dp"/>
+
+
+            <TextView
+                android:id="@+id/Resactive"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ResendActiveCodeBtn"
+                android:onClick="ResendActiveCodeAction"
+                android:text="@string/resend_activation_code"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_margin="16dp"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/mobileTxt"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_margin="16dp"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/ClearCashBtn"
+                android:onClick="ClearCashAction"
+                android:text="@string/register_again"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_margin="16dp"
+                android:padding="8dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "399998089696",
+    "firebase_url": "https://truckup-2ba97.firebaseio.com",
+    "project_id": "truckup-2ba97",
+    "storage_bucket": "truckup-2ba97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399998089696:android:feb5c04e10853fc1",
+        "android_client_info": {
+          "package_name": "com.MS.applications.truck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399998089696-nnohg6frg66hviuagka4nadp1doaaj7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsvqFn49jEeMX8CwVz9TiqpQIqcnJN-kc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

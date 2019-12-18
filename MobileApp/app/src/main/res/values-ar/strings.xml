@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mobile Web Company</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!--Config Constant-->
+    <string name="ENGLISH_LANG">en</string>
+    <string name="my_channel">my_channel</string>
+    <string name="channel_id_sticky">location_monitoring_service_default_channel_sticky</string>
+    <!--Config Constant-->
+    <!--API CONSTANTS-->
+    <!--API Functions-->
+    <!--API Functions-->
+    <!--API Param-->
+    <!--API Param-->
+    <!--API Result-->
+    <!--API Result-->
+    <!--API CONSTANTS-->
+
+    <string name="lang">English</string>
+    <string name="logout">تسجيل خروج</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="email">اسم المستخدم* (البريد الالكتروني)</string>
+    <string name="password">كلمة المرور</string>
+    <string name="password_confirm">تأكيد كلمة المرور</string>
+    <string name="forget_password"><u>نسيت كلمة المرور؟</u></string>
+    <string name="activate">تفعيل</string>
+    <string name="resend_activation_code">إعادة إرسال كود التفعيل؟</string>
+    <string name="cur_email">البريد الالكتروني : </string>
+    <string name="register_again">إعادة التسجيل؟</string>
+    <string name="are_sure_to_re_register">هل تريد تأكيد إعادة التسجيل</string>
+    <string name="ok">موافق</string>
+    <string name="cancel">إلغاء</string>
+    <string name="activation_done">تم تفعيل الحساب</string>
+    <string name="activation_code_resent_please_wait">تم إعادة ارسال كود التفعيل .. يرجى الانتظار قليلا</string>
+    <!-- update app -->
+    <string name="update">تحديث</string>
+    <string name="later">لاحقا</string>
+    <!--  validate  -->
+    <string name="username_required">اسم المستخدم مطلوب</string>
+    <string name="password_required">كلمة السر مطلوبة</string>
+    <string name="password_length">كلمة المرور 6 احرف على الاقل</string>
+    <string name="password_confirm_not_equal_password">تأكيد كلمة المرور غير مطابق</string>
+    <string name="first_name_required">الاسم مطلوب</string>
+    <string name="last_name_required">الكنية مطلوبة</string>
+    <string name="code_required">كود التفعيل مطلوب</string>
+    <!---  error messge -->
+    <string name="fail_try_agian">فشل يرجى المحاولة مرة أخرى</string>
+    <!-- success message -->
+    <!--applications strings-->
+    <string name="pending">انتظار</string>
+    <string name="canceled">تم الإلغاء</string>
+    <string name="online">متصل</string>
+    <string name="permission_rationale">الرجاء إعطاء صلاحيات الموقع</string>
+    <string name="permission_denied_explanation">التطبيق لا يملك صلاحيات استخدام الموقع</string>
+    <string name="settings">الإعدادات</string>
+    <string name="title_alert_no_intenet">لا يوجد إنترنت</string>
+    <string name="msg_alert_no_internet">الرجاء التأكد من الاتصال بالإنترنت</string>
+    <string name="no_google_playservice_available">الرجاء تنزيل خدمات غوغل</string>
+    <string name="btn_label_refresh">تحديث</string>
+    <string name="offline_mode">أنت غير متصل</string>
+    <string name="accept">موافقة</string>
+    <string name="decline">رفض</string>
+    <string name="done">تم</string>
+    <string name="arrived">وصل الطلب</string>
+    <string name="are_you_sure">هل أنت متأكد</string>
+    <string name="order_rejected">تم رفض الطلب</string>
+    <string name="order_finished">تم إنهاء الطلب</string>
+    <string name="order_arrived">وصل الطلب</string>
+    <string name="order_accepted">تم قبول الطلب</string>
+    <string name="no_order_found">لا يوجد طلب حتى الآن… !</string>
+    <string name="you_offline">أنت غير متصل</string>
+    <string name="orders">الطلبات</string>
+    <string name="accepted">مقبول</string>
+    <string name="rejected">مرفوض</string>
+    <string name="home">الرئيسية</string>
+    <string name="enable_location_service">تفعيل خدمة الموقع</string>
+    <string name="open_location_settings">اذهب إلى إعدادات الموقع</string>
+    <string name="new_version_available">يوجد نسخة جديدة</string>
+    <string name="went_wrong">حدث خطأ ما</string>
+
+    <string name="register">التسجيل</string>
+    <string name="last_name">الكنية*</string>
+    <string name="mob_number">رقم جوالك</string>
+    <string name="welcome_to_the_biggest_space_of_services">مرحباً بك في أكبر تطبيق للخدمات</string>
+    <string name="submit">تأكيد</string>
+    <string name="reset_code_required">رمز إعادة التهيئة مطلوب</string>
+    <string name="on_going">بدأالسائق الرحلة</string>
+    <string name="completed">اكتمل</string>
+    <string name="start_trip">ابدأ</string>
+    <string name="order_on_going">بدأت الرحلة</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="reset_password">تهيئة كلمة المرور</string>
+    <string name="code">الرمز</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="order_at">طلب في</string>
+    <string name="your_current_location">المكان الحالي</string>
+    <string name="pick_up_location">مكان الزبون</string>
+    <string name="destination_location">الوجهة</string>
+</resources>

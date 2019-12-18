@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <!--<item-->
+            <!--android:id="@+id/online_trucks"-->
+            <!--android:icon="@drawable/ic_truck"-->
+            <!--android:title="@string/title_home" />-->
+        <!--<item-->
+            <!--android:id="@+id/change_password"-->
+            <!--android:icon="@drawable/ic_settings"-->
+            <!--android:title="@string/change_password" />-->
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home"
+            />
+        <!--<item-->
+            <!--android:id="@+id/orders"-->
+            <!--android:icon="@drawable/ic_orders"-->
+            <!--android:title="@string/orders"-->
+            <!--/>-->
+        <!--<item-->
+            <!--android:id="@+id/lang"-->
+            <!--android:icon="@drawable/ic_white_lang"-->
+            <!--android:title="@string/lang"-->
+            <!--/>-->
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_white_exit"
+            android:title="@string/logout" />
+    </group>
+</menu>

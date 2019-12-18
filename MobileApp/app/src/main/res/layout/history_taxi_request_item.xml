@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="16dp"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="20dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:background="@android:color/white">
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_column="1" />
+
+                <TextView
+                    android:padding="2dp"
+                    android:id="@+id/name"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="2" />
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:padding="2dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="1"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd" />
+
+                <TextView
+                    android:padding="2dp"
+                    android:id="@+id/model"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="2"
+                    android:gravity="start"
+                    android:textAlignment="viewStart"/>
+
+                <TextView
+                    android:padding="2dp"
+                    android:id="@+id/capacity"
+                    android:layout_column="3"
+                    android:layout_gravity="center_vertical|end"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/yellow"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"/>
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:padding="2dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="1"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd" />
+
+                <TextView
+                    android:padding="2dp"
+                    android:id="@+id/number"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="2"
+                    android:gravity="start"
+                    android:textAlignment="viewStart" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:padding="2dp"
+                    android:id="@+id/licence_date_label"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="1"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd" />
+
+                <TextView
+                    android:padding="2dp"
+                    android:id="@+id/licence_date"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="2"
+                    android:gravity="start"
+                    android:textAlignment="viewStart" />
+
+            </TableRow>
+            <TableRow>
+
+                <ImageView
+                    android:src="@drawable/money"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:layout_column="1" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:padding="2dp"
+                    android:textColor="#88ae45"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:gravity="top"
+                    android:layout_gravity="top"
+                    android:layout_column="1" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:padding="2dp"
+                    android:id="@+id/price_km"
+                    android:textColor="#88ae45"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:gravity="top"
+                    android:layout_gravity="top"
+                    android:layout_column="1" />
+            </TableRow>
+
+            <TableLayout
+                android:id="@+id/more_loc"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                    android:padding="2dp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_gravity="center_vertical"
+                        android:layout_column="1"
+                        android:gravity="end"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                    android:padding="2dp"
+                        android:id="@+id/comment_txt"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_gravity="center_vertical"
+                        android:layout_column="2"
+                        android:gravity="start"
+                        android:textAlignment="viewStart" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                    android:padding="2dp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_gravity="center_vertical"
+                        android:layout_column="1"
+                        android:gravity="end"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                    android:padding="2dp"
+                        android:id="@+id/from_txt"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_gravity="center_vertical"
+                        android:layout_column="2"
+                        android:gravity="start"
+                        android:textAlignment="viewStart" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                    android:padding="2dp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_gravity="center_vertical"
+                        android:layout_column="1"
+                        android:gravity="end"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                    android:padding="2dp"
+                        android:id="@+id/to_txt"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_gravity="center_vertical"
+                        android:layout_column="2"
+                        android:gravity="start"
+                        android:textAlignment="viewStart" />
+
+                </TableRow>
+            </TableLayout>
+            <TableLayout
+                android:id="@+id/accept_more_table"
+                android:visibility="gone">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:padding="2dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="1"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd" />
+
+                <TextView
+                    android:padding="2dp"
+                    android:id="@+id/accept_txt"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="2"
+                    android:gravity="start"
+                    android:textAlignment="viewStart" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:padding="2dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="1"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd" />
+
+                <TextView
+                    android:padding="2dp"
+                    android:id="@+id/going_txt"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="2"
+                    android:gravity="start"
+                    android:textAlignment="viewStart" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:padding="2dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="1"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd" />
+
+                <TextView
+                    android:padding="2dp"
+                    android:id="@+id/arrive_txt"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="2"
+                    android:gravity="start"
+                    android:textAlignment="viewStart" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:padding="2dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="1"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd" />
+
+                <TextView
+                    android:padding="2dp"
+                    android:id="@+id/complete_txt"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="2"
+                    android:gravity="start"
+                    android:textAlignment="viewStart" />
+
+            </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/reject_more"
+                android:visibility="gone">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                    android:padding="2dp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_gravity="center_vertical"
+                        android:layout_column="1"
+                        android:gravity="end"
+                        android:textAlignment="viewEnd" />
+
+                    <TextView
+                    android:padding="2dp"
+                        android:id="@+id/reject_txt"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_gravity="center_vertical"
+                        android:layout_column="2"
+                        android:gravity="start"
+                        android:textAlignment="viewStart" />
+
+                </TableRow>
+            </TableLayout>
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/background"
+            android:layout_width="25dp"
+            android:layout_height="25sp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/white"/>
+
+        <ImageView
+            android:id="@+id/open_details"
+            android:src="@drawable/plus_details"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"/>
+
+        <ImageView
+            android:id="@+id/close_details"
+            android:src="@drawable/minus_details"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
