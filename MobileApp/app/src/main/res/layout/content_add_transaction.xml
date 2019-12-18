@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Transactions.AddTransactionActivity"
+    tools:showIn="@layout/activity_add_transaction">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/Customer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Customer Name"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/Date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date "
+            android:inputType="number"
+            android:padding="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/PetrolAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Petrol Amount"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <Switch
+            android:id="@+id/ConvertExceedingAmountToFree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Convert Exceeding Amount To Free" />
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

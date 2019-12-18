@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.MS.applications.UnlimitedServicesDriver.Models.Transaction;
 import com.MS.applications.UnlimitedServicesDriver.MyActivities.CustomerListActivity;
 import com.MS.applications.UnlimitedServicesDriver.R;
+import com.MS.applications.UnlimitedServicesDriver.Transactions.TransactionListActivity;
 
 public class AdminMainActivity extends AppCompatActivity {
 
@@ -14,6 +16,7 @@ public class AdminMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
+
     }
 
     public void customers(View v){
@@ -27,6 +30,12 @@ public class AdminMainActivity extends AppCompatActivity {
     }
 
     public void on_click_createCustomer(View v){
-
+        try {
+            startActivity(new Intent(getBaseContext(),
+                    TransactionListActivity.class));
+            finish();
+        }catch (Exception e){
+            e.getMessage();
+        }
     }
 }

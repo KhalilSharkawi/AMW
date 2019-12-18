@@ -105,4 +105,6 @@
     <string name="title_customer_detail">Customer Detail</string>
     <string name="title_activity_add_customer_fragment">AddCustomerFragment</string>
     <string name="title_activity_add_customer">AddCustomerActivity</string>
+    <string name="title_transaction_list">Transactions</string>
+    <string name="title_transaction_detail">Transaction Detail</string>
 </resources>

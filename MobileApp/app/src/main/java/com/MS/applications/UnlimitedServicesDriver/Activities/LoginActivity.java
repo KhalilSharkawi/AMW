@@ -111,7 +111,9 @@ public class LoginActivity extends GodFatherActivity {
                             //boolean userInfo = userInfoAPIResponse.getContent();
                             //SaveToSharedPreferences(userInfo);
                             if(email.equals("admin")) {
+                                getIntent().putExtra("user",email);
                                 startActivity(new Intent(getBaseContext(), AdminMainActivity.class));
+
                                 finish();
                             }
                             else if(email.equals("emp")){
