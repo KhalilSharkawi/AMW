@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebSite.Models.Customer>
+
+@{
+    ViewBag.Title = "Report";
+}
+
+<h2>Report</h2>
+
+@*<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleNumber)
+        </th>
+        <th> Total Amount</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleNumber)
+            </td>
+        <td>
+            @item.Transactions.Sum(x=>x.PetrolAmount+x.FreeAmount)
+        </td>
+        </tr>
+    }
+
+</table>*@
+
+
+<div class="limiter">
+    <div>
+        <div class="wrap-table100">
+            <div class="table">
+
+                <div class="row header">
+                    <div class="cell">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </div>
+                    <div class="cell">
+                        @Html.DisplayNameFor(model => model.VehicleNumber)
+                    </div>
+                    <div class="cell">
+                        Total Amount
+                    </div>
+                    
+                </div>
+                @foreach (var item in Model)
+                {
+                    <div class="row">
+                        <div class="cell" data-title="Name">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </div>
+                        <div class="cell" data-title="Mobile Number">
+                            @Html.DisplayFor(modelItem => item.VehicleNumber)
+                        </div>
+                        <div class="cell" data-title="National Number">
+                           @item.Transactions.Sum(x => x.PetrolAmount + x.FreeAmount)
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+</div>

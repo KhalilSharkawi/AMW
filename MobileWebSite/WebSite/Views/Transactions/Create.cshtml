@@ -1,0 +1,114 @@
+﻿@model WebSite.Models.Transaction
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    Html.EnableClientValidation(true);
+    Html.EnableUnobtrusiveJavaScript(true);
+
+    <fieldset>
+        <legend>Transaction</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CustomerId, "Customer")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CustomerId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CustomerId)
+        </div>
+        <div id="customer-info"> </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PetrolAmount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PetrolAmount)
+            @Html.ValidationMessageFor(model => model.PetrolAmount)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ConvertExceedingAmountToFree)
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.ConvertExceedingAmountToFree)
+        </div>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.FreeAmount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FreeAmount)
+            @Html.ValidationMessageFor(model => model.FreeAmount)
+        </div>*@
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.TotalPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TotalPrice)
+            @Html.ValidationMessageFor(model => model.TotalPrice)
+        </div>*@
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var pageUrl = '';
+        $('select').on('change', function (e) {
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetOne", "Customers")',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: { Id: this.value },
+                success: function (data) {
+                    $('#customer-info').html("");
+                    if (data.Customer != null) {
+                        var c = " Name: " + data.Customer.Name +
+                            "<br/>     MobileNumber: " + data.Customer.MobileNumber +
+                            "<br/>     NationalNumber: " + data.Customer.NationalNumber +
+                            "<br/>     Residence: " + data.Customer.Residence +
+                            "<br/>     Address: " + data.Customer.Address;
+                        $('#customer-info').html(c);
+                    }
+                },
+                failure: function () {
+                    $('#customer-info').html("");
+                }
+
+            });
+        });
+    });
+
+
+
+</script>
+
+
+}
+

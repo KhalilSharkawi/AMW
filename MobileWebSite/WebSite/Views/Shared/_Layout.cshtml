@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - MWS AMW</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @*@Scripts.Render("~/Script/jquery-1.8.2.js")*@
+        @Styles.Render("~/Content/Site.css")
+        @Scripts.Render("~/bundles/modernizr")
+
+        @Styles.Render("~/Content/Table_Responsive_v1/vendor/bootstrap/css/bootstrap.min.css")
+        @Styles.Render("~/Content/Table_Responsive_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css")
+        @Styles.Render("~/Content/Table_Responsive_v1/vendor/animate/animate.css")
+        @Styles.Render("~/Content/Table_Responsive_v1/vendor/select2/select2.min.css")
+        @Styles.Render("~/Content/Table_Responsive_v1/vendor/perfect-scrollbar/perfect-scrollbar.css")
+        @Styles.Render("~/Content/Table_Responsive_v1/css/util.css")
+        @Styles.Render("~/Content/Table_Responsive_v1/css/main.css")
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    @*<p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>*@
+                    <img src="~/Images/takamol-logo.png" alt="takamol-logo" style="max-width: 500px; max-height: 500px;">
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Transactions", "Index", "Transactions")</li>
+                            <li>@Html.ActionLink("Customer", "Index", "Customers")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - Tacamol</p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+
+        @Scripts.Render("~/Content/Table_Responsive_v1/vendor/jquery/jquery-3.2.1.min.js")
+        @Scripts.Render("~/Content/Table_Responsive_v1/vendor/bootstrap/js/popper.js")
+        @Scripts.Render("~/Content/Table_Responsive_v1/vendor/bootstrap/js/bootstrap.min.js")
+        @Scripts.Render("~/Content/Table_Responsive_v1/vendor/select2/select2.min.js")
+        @Scripts.Render("~/Content/Table_Responsive_v1/js/main.js")
+
+
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

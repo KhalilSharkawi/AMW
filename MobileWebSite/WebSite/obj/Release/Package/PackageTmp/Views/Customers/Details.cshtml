@@ -1,0 +1,64 @@
+﻿@model WebSite.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Customer</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MobileNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MobileNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NationalNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NationalNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Residence)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Residence)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CardNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CardNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VehicleNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VehicleNumber)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, null, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+</p>

@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Tacamol Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Welcome To Tacamol Website
+                </p>
+        </div>
+    </section>
+}
+
+
+    <fieldset>
+    <legend>Inquire Info</legend>
+    <p>To Inquire Info, please select card number</p>
+    <div class="editor-label">
+        Customer Card Number
+    </div>
+    <div class="editor-field">
+        @Html.DropDownList("CustomerId", String.Empty)
+    </div>
+    <div id="customer-info">
+        <div class="limiter">
+            <div>
+                <div class="wrap-table100">
+                    <div class="table">
+                        <div class="row header">
+                            <div class="cell">
+                                5 Days Allownce
+                            </div>
+                            <div class="cell">
+                                Monthly Allownce
+                            </div>
+                            <div class="cell">
+                                Free Petrol Withdrowed
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell" data-title="Name" id="Name">
+                            </div>
+                            <div class="cell" data-title="Date" id="Date">
+                            </div>
+                            <div class="cell" data-title="PetrolAmount" id="PetrolAmount">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('select').on('change', function (e) {
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetInfo", "Customers")',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: { Id: this.value },
+                success: function (data) {
+                    $('#Name').html("");
+                    $('#Date').html("");
+                    $('#PetrolAmount').html("");
+                    if (data != null) {
+                        $('#Name').html(data._5daysAllownce);
+                        $('#Date').html(data._monthlyAllownce);
+                        $('#PetrolAmount').html(data._free);
+                    }
+                },
+                error: function () {
+                    $('#Name').html("");
+                    $('#Date').html("");
+                    $('#PetrolAmount').html("");
+                }
+
+            });
+        });
+    });
+
+
+
+    </script>
+
+
+}
+
