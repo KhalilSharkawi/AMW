@@ -1,0 +1,12 @@
+
+*.ide
+*.dll
+*.cache
+*.pdb
+*.pp
+*.xdt
+*.rsp
+*.nuspec
+*.nupkg
+*.ttf
+*.user
