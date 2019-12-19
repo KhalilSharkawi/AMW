@@ -44,4 +44,19 @@ namespace API.Models
             return PetrolAmount * 225 + FreeAmount * 425;
         }
     }
+
+    public class TransactionModel
+    {
+        [Required]
+        public int CustomerId { get; set; }
+        [Required]
+        public String Date { get; set; }
+        [Required]
+        [DefaultValue(0)]
+        public float PetrolAmount { get; set; }
+        [Required]
+        [DefaultValue(0)]
+        public float FreeAmount { get; set; }
+        public bool ConvertExceedingAmountToFree { get; set; }
+    }
 }

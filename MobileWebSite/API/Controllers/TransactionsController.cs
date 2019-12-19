@@ -75,13 +75,21 @@ namespace API.Controllers
         [ResponseType(typeof(Transaction))]
         [Route("create")]
         [HttpPost]
-        public Response<Transaction> createTransaction([FromBody]Transaction transaction)
+        public Response<Transaction> createTransaction([FromBody]TransactionModel transactionModel)
         {
             if (!ModelState.IsValid)
             {
                 return new Response<Transaction>("Bad Request", null, "Bad Request", -2);
             }
+            Transaction transaction = new Transaction
+            {
+                CustomerId = transactionModel.CustomerId,
+                Date = DateTime.Parse(transactionModel.Date),
+                PetrolAmount = transactionModel.PetrolAmount,
+                FreeAmount = transactionModel.FreeAmount,
+                ConvertExceedingAmountToFree = transactionModel.ConvertExceedingAmountToFree
 
+            };
             var _5days = DateTime.Today.AddDays(-5);
             var totalIn5Days = db.Transactions
                 .Where(x => x.CustomerId == transaction.CustomerId
@@ -97,9 +105,9 @@ namespace API.Controllers
             {
                 transaction.FreeAmount = totalIn5Days + transaction.PetrolAmount - 40;
                 transaction.PetrolAmount = transaction.PetrolAmount - transaction.FreeAmount;
-                transaction.TotalPrice = Transaction.calculateTotalPrice(transaction.PetrolAmount, transaction.FreeAmount);
-                db.Transactions.Add(transaction);
-                db.SaveChanges();
+                //transaction.TotalPrice = Transaction.calculateTotalPrice(transaction.PetrolAmount, transaction.FreeAmount);
+                //db.Transactions.Add(transaction);
+                //db.SaveChanges();
             }
             else if (totalIn5Days + transaction.PetrolAmount >= 40)
             {
@@ -111,17 +119,18 @@ namespace API.Controllers
             {
                 transaction.FreeAmount = totalIn5Days + transaction.PetrolAmount - 100;
                 transaction.PetrolAmount = transaction.PetrolAmount - transaction.FreeAmount;
-                transaction.TotalPrice = Transaction.calculateTotalPrice(transaction.PetrolAmount, transaction.FreeAmount);
-                db.Transactions.Add(transaction);
-                db.SaveChanges();
+                //transaction.TotalPrice = Transaction.calculateTotalPrice(transaction.PetrolAmount, transaction.FreeAmount);
+                //db.Transactions.Add(transaction);
+                //db.SaveChanges();
             }
             else if ((totalInMonth + transaction.PetrolAmount >= 100))
             {
                 ModelState.AddModelError("PetrolAmount", "Monthly Amount Exceeded");
                 return new Response<Transaction>("Inernal Server Error", null, "Monthly Amount Exceeded", -2);
             }
-           
-
+            transaction.TotalPrice = Transaction.calculateTotalPrice(transaction.PetrolAmount, transaction.FreeAmount);
+            db.Transactions.Add(transaction);
+            db.SaveChanges();
             return new Response<Transaction>("success", transaction, "", 1);
         }
 
