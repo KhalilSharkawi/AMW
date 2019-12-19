@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.MS.applications.UnlimitedServicesDriver.Models.Transaction;
 import com.MS.applications.UnlimitedServicesDriver.R;
 
+import java.util.Date;
+
 /**
  * A fragment representing a single Transaction detail screen.
  * This fragment is either contained in a {@link TransactionListActivity}
@@ -50,7 +52,7 @@ public class TransactionDetailFragment extends Fragment {
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(Float.toString( mItem.getTotalPrice()));
+                appBarLayout.setTitle(mItem.getDate());
             }
         }
     }
@@ -62,7 +64,11 @@ public class TransactionDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.transaction_detail)).setText(Float.toString( mItem.getTotalPrice()));
+            String detail = String.format("Date: %s \nPetrolAmount: %s \nFreeAmount: %s \nTotalPrice: %s" +
+                            "\n Customer: %s", mItem.getDate(),
+                    mItem.getPetrolAmount(), mItem.getFreeAmount(), mItem.getTotalPrice(), mItem.getCustomerId()
+                    );
+            ((TextView) rootView.findViewById(R.id.transaction_detail)).setText(detail);
         }
 
         return rootView;

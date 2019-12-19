@@ -18,11 +18,13 @@ import com.MS.applications.UnlimitedServicesDriver.Api.CallBackListener;
 import com.MS.applications.UnlimitedServicesDriver.Api.SendGetJsonApi;
 import com.MS.applications.UnlimitedServicesDriver.Models.APIResponse;
 import com.MS.applications.UnlimitedServicesDriver.Models.Transaction;
+import com.MS.applications.UnlimitedServicesDriver.MyActivities.AddCustomerActivity;
 import com.MS.applications.UnlimitedServicesDriver.R;
 
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,8 +61,10 @@ public class TransactionListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(getBaseContext(), AddTransactionActivity.class));
+
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
             }
         });
 
@@ -127,7 +131,7 @@ public class TransactionListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mIdView.setText(Integer.toString(mValues.get(position).getId()));
-            holder.mContentView.setText(Integer.toString(mValues.get(position).getId()));
+            holder.mContentView.setText((mValues.get(position).getDate().toString()) + mValues.get(position).getCustomerId());
 
 
             holder.itemView.setTag(mValues.get(position));
@@ -155,7 +159,7 @@ public class TransactionListActivity extends AppCompatActivity {
 
         JSONObject jsonParams = new JSONObject();
 
-        new SendGetJsonApi(this, "api/api/customers/all",
+        new SendGetJsonApi(this, "api/api/transactions/all",
                 jsonParams,
                 new CallBackListener() {
                     @Override

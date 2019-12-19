@@ -25,7 +25,7 @@ public class MainActivity extends GodFatherActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
-
+        String email = getIntent().getStringExtra("email");
 //        UserId = readSharedPreferenceInt(this, USER_ID);
 //        String Name = readSharedPreferenceString(this, FIRST_NAME);
 //        number = findViewById(R.id._id);

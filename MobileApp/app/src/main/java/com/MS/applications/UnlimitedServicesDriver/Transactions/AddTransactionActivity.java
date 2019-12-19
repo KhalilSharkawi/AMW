@@ -30,7 +30,7 @@ public class AddTransactionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_customer);
+        setContentView(R.layout.activity_add_transaction);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -38,56 +38,58 @@ public class AddTransactionActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Transaction c = new Transaction();
-                c.setCustomerId(Integer.parseInt (((EditText) findViewById(R.id.Customer)).getText().toString()));
-                c.setConvertExceedingAmountToFree(((Switch) findViewById(R.id.ConvertExceedingAmountToFree)).isChecked());
-                c.setDate(new Date(((EditText) findViewById(R.id.Date)).getText().toString()));
-                c.setPetrolAmount(Integer.parseInt(((EditText) findViewById(R.id.PetrolAmount)).getText().toString()));
-
-
-                JSONObject jsonParam = new JSONObject();
                 try {
+                    Transaction c = new Transaction();
+                    c.setCustomerId(Integer.parseInt(((EditText) findViewById(R.id.Customer)).getText().toString()));
+                    c.setConvertExceedingAmountToFree(((Switch) findViewById(R.id.ConvertExceedingAmountToFree)).isChecked());
+                    c.setDate(((EditText) findViewById(R.id.Date)).getText().toString());
+                    c.setPetrolAmount(Integer.parseInt(((EditText) findViewById(R.id.PetrolAmount)).getText().toString()));
+
+
+                    JSONObject jsonParam = new JSONObject();
+
                     jsonParam.put("CustomerId", c.getCustomerId());
                     jsonParam.put("ConvertExceedingAmountToFree", c.isConvertExceedingAmountToFree());
                     jsonParam.put("Date", c.getDate());
                     jsonParam.put("PetrolAmount", c.getPetrolAmount());
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                new SendGetJsonApi(AddTransactionActivity.this, "/api/api/transactions/create", jsonParam,
-                        new CallBackListener() {
-                            @Override
-                            public void onFinish(String resultjson) {
-                                try {
-                                    APIResponse<Boolean> userInfoAPIResponse = getResponse(resultjson, Boolean.class);
-                                    if (userInfoAPIResponse != null && userInfoAPIResponse.getResult().equals("success")) {
-                                        startActivity(new Intent(getBaseContext(), TransactionListActivity.class));
 
-                                    } else {
-                                        String error_des = userInfoAPIResponse != null ? userInfoAPIResponse.getErrorDes() : null;
-                                        if (!(error_des != null && error_des.equals(""))) {
-                                            Snackbar.make(view, "Error", Snackbar.LENGTH_LONG)
-                                                    .setAction("Action", null).show();
+                    new SendGetJsonApi(AddTransactionActivity.this, "/api/api/transactions/create", jsonParam,
+                            new CallBackListener() {
+                                @Override
+                                public void onFinish(String resultjson) {
+                                    try {
+                                        APIResponse<Boolean> userInfoAPIResponse = getResponse(resultjson, Boolean.class);
+                                        if (userInfoAPIResponse != null && userInfoAPIResponse.getResult().equals("success")) {
+                                            startActivity(new Intent(getBaseContext(), TransactionListActivity.class));
+
                                         } else {
-                                            Snackbar.make(view, error_des, Snackbar.LENGTH_LONG)
-                                                    .setAction("Action", null).show();
+                                            String error_des = userInfoAPIResponse != null ? userInfoAPIResponse.getErrorDes() : null;
+                                            if (!(error_des != null && error_des.equals(""))) {
+                                                Snackbar.make(view, "Error", Snackbar.LENGTH_LONG)
+                                                        .setAction("Action", null).show();
+                                            } else {
+                                                Snackbar.make(view, error_des, Snackbar.LENGTH_LONG)
+                                                        .setAction("Action", null).show();
+                                            }
                                         }
+                                    } catch (Exception e) {
+                                        Snackbar.make(view, e.getMessage(), Snackbar.LENGTH_LONG)
+                                                .setAction("Action", null).show();
                                     }
-                                } catch (Exception e) {
-                                    Snackbar.make(view, e.getMessage(), Snackbar.LENGTH_LONG)
-                                            .setAction("Action", null).show();
+                                }
+
+                                @Override
+                                public void onProgress(int process) {
                                 }
                             }
 
-                            @Override
-                            public void onProgress(int process) {
-                            }
-                        }
+                    ).Execute();
 
-                ).Execute();
-
-
+                } catch (Exception e) {
+                    Snackbar.make(view, "Invalid Input", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
             }

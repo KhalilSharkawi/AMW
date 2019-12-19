@@ -105,6 +105,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.MS.applications.UnlimitedServicesDriver.Transactions.TransactionListActivity" />
         </activity>
+        <activity
+            android:name=".Transactions.AddTransactionActivity"
+            android:label="Add Transaction"
+            android:parentActivityName=".Transactions.TransactionListActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.MS.applications.UnlimitedServicesDriver.Transactions.TransactionListActivity" />
+        </activity>
     </application>
 
 </manifest>

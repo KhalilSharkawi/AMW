@@ -1,7 +1,9 @@
 package com.MS.applications.UnlimitedServicesDriver.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -48,102 +50,102 @@ public class LoginActivity extends GodFatherActivity {
         UserId = readSharedPreferenceInt(this, USER_ID);
         Token = readSharedPreferenceString(this, TOKEN);
         String isAdmin = readSharedPreferenceString(this, LAST_NAME);
-        if(!Token.equals("") && isAdmin.equals("True"))
-        {
+        if (!Token.equals("") && isAdmin.equals("True")) {
             Intent mainIntent = new Intent(this, MainActivity.class);
             mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(mainIntent);
             finish();
-        }
-        else if(!Token.equals("") && !isAdmin.equals("True"))
-        {
+        } else if (!Token.equals("") && !isAdmin.equals("True")) {
             startActivity(new Intent(this, MainActivity.class));
             finish();
-        }
-        else
-        {
+        } else {
             setContentView(R.layout.activity_login);
             EmailTxt = findViewById(R.id.username);
             PasswordTxt = findViewById(R.id.password);
             Reslog = findViewById(R.id.Reslogin);
         }
-        try{
+        try {
             email = getIntent().getStringExtra("email");
             password = getIntent().getStringExtra("password");
-            if(!email.equals("") && !password.equals("")){
+            if (!email.equals("") && !password.equals("")) {
                 isFromRegister = true;
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        if(isFromRegister){
+        if (isFromRegister) {
             EmailTxt.setText(email);
             PasswordTxt.setText(password);
         }
     }
-    public void Guest(View v){
+
+    public void Guest(View v) {
         startActivity(new Intent(getBaseContext(), MainActivity.class));
         finish();
     }
-    public void LoginBtnAction(View v)
-    {
+
+    public void LoginBtnAction(View v) {
         hideKeyboard(this);
         Reslog.setText("");
         String email = EmailTxt.getText().toString().trim();
         String password = PasswordTxt.getText().toString().trim();
         if (email.equals("")) {
-            EmailTxt.setError(getString(R.string.username_required));EmailTxt.requestFocus();  return;
+            EmailTxt.setError(getString(R.string.username_required));
+            EmailTxt.requestFocus();
+            return;
         }
         if (password.equals("")) {
-            PasswordTxt.setError(getString(R.string.password_required));PasswordTxt.requestFocus();  return;
+            PasswordTxt.setError(getString(R.string.password_required));
+            PasswordTxt.requestFocus();
+            return;
         }
         FCM_Token = readSharedPreferenceFCMString(this, FCM_TOKEN);
         JSONObject jsonParams = getLoginParams(email, password, FCM_Token);
-        new SendGetJsonApi(this,"/mws/api/account/login?username="+email+"&password="+password,jsonParams,
-            new CallBackListener() {
-                @Override
-                public void onFinish(String resultjson)
-                {
-                    try { APIResponse<Boolean> userInfoAPIResponse = getResponse(resultjson, Boolean.class);
-                        if (userInfoAPIResponse != null && userInfoAPIResponse.getResult().equals("success"))
-                        {
-                            //boolean userInfo = userInfoAPIResponse.getContent();
-                            //SaveToSharedPreferences(userInfo);
-                            if(email.equals("admin")) {
-                                getIntent().putExtra("user",email);
-                                startActivity(new Intent(getBaseContext(), AdminMainActivity.class));
+        new SendGetJsonApi(this, "/mws/api/account/login?username=" + email + "&password=" + password, jsonParams,
+                new CallBackListener() {
+                    @Override
+                    public void onFinish(String resultjson) {
+                        try {
+                            APIResponse<Boolean> userInfoAPIResponse = getResponse(resultjson, Boolean.class);
+                            if (userInfoAPIResponse != null && userInfoAPIResponse.getResult().equals("success")) {
+                                //boolean userInfo = userInfoAPIResponse.getContent();
+                                //SaveToSharedPreferences(userInfo);
+                                SharedPreferences settings = getSharedPreferences("user", 0);
+                                SharedPreferences.Editor editor = settings.edit();
+                                editor.putString("username", email);
+                                editor.commit();
 
-                                finish();
+                                if (email.equals("admin")) {
+                                    startActivity(new Intent(getBaseContext(), AdminMainActivity.class));
+                                    finish();
+                                } else if (email.equals("emp")) {
+                                    startActivity(new Intent(getBaseContext(), AdminMainActivity.class));
+                                    finish();
+                                } else {
+
+                                    startActivity(new Intent(getBaseContext(), MainActivity.class));
+                                    finish();
+                                }
+                            } else {
+                                String error_des = userInfoAPIResponse != null ? userInfoAPIResponse.getErrorDes() : null;
+                                if (!(error_des != null && error_des.equals(""))) {
+                                    Snackbar.make(v, error_des, Snackbar.LENGTH_LONG)
+                                            .setAction("Action", null).show();
+                                } else {
+                                    Snackbar.make(v, "fail", Snackbar.LENGTH_LONG)
+                                            .setAction("Action", null).show();
+                                }
                             }
-                            else if(email.equals("emp")){
-                                startActivity(new Intent(getBaseContext(), MainActivity.class));
-                                finish();
-                            }else {
-                                startActivity(new Intent(getBaseContext(), MainActivity.class));
-                                finish();
-                            }
-                        }
-                        else
-                        {
-                            String error_des = userInfoAPIResponse != null ? userInfoAPIResponse.getErrorDes() : null;
-                            if(!(error_des != null && error_des.equals(""))){
-                                Reslog.setText(error_des);
-                            }else
-                            {
-                                Reslog.setText(getString(R.string.fail_try_agian));
-                            }
+                        } catch (Exception e) {
+                            Snackbar.make(v, e.getMessage(), Snackbar.LENGTH_LONG)
+                                    .setAction("Action", null).show();
                         }
                     }
-                    catch ( Exception e)
-                    {
-                        Reslog.setText(getString(R.string.fail_try_agian));
+
+                    @Override
+                    public void onProgress(int process) {
                     }
                 }
-                @Override
-                public void onProgress(int process) {
-                }
-            }
 
         ).Execute();
     }
@@ -158,13 +160,11 @@ public class LoginActivity extends GodFatherActivity {
         writeSharedPreferenceInt(this, IS_VERIFIED, userInfo.getMainRegionId());
     }
 
-    public void RegisterBtnAction(View v)
-    {
-        startActivity(new Intent(getBaseContext() , RegisterActivity.class));
+    public void RegisterBtnAction(View v) {
+        startActivity(new Intent(getBaseContext(), RegisterActivity.class));
     }
 
-    public void ResetPasswordBtnAction(View v)
-    {
+    public void ResetPasswordBtnAction(View v) {
         hideKeyboard(this);
         Reslog.setText("");
         final String email = EmailTxt.getText().toString().trim();
@@ -177,33 +177,27 @@ public class LoginActivity extends GodFatherActivity {
         new SendGetJsonApi(this, RESET_PASS, jsonParams,
                 new CallBackListener() {
                     @Override
-                    public void onFinish(String resultjson)
-                    {
+                    public void onFinish(String resultjson) {
                         try {
                             APIResponse<ResetPass> userInfoAPIResponse = getResponse(resultjson, ResetPass.class);
-                            if (userInfoAPIResponse != null && userInfoAPIResponse.getResult().equals("success"))
-                            {
+                            if (userInfoAPIResponse != null && userInfoAPIResponse.getResult().equals("success")) {
 //                                Intent resetIntent = new Intent(getBaseContext(), ResetPasswordActivity.class);
 //                                resetIntent.putExtra("email", email);
 //                                startActivity(resetIntent);
-                            }
-                            else
-                            {
+                            } else {
                                 String error_des = userInfoAPIResponse != null ? userInfoAPIResponse.getErrorDes() : null;
-                                if(!(error_des != null && error_des.equals(""))){
+                                if (!(error_des != null && error_des.equals(""))) {
                                     Reslog.setText(error_des);
-                                }else
-                                {
+                                } else {
                                     Reslog.setText(getString(R.string.fail_try_agian));
                                 }
                             }
 
-                        }
-                        catch ( Exception e)
-                        {
+                        } catch (Exception e) {
                             Reslog.setText(getString(R.string.fail_try_agian));
                         }
                     }
+
                     @Override
                     public void onProgress(int process) {
                     }

@@ -14,7 +14,7 @@ public class Transaction implements Serializable {
     private int customerId;
 
     @SerializedName("Date")
-    private java.util.Date date;
+    private String date;
 
     @SerializedName("PetrolAmount")
     private float petrolAmount;
@@ -36,11 +36,11 @@ public class Transaction implements Serializable {
         this.customerId = customerId;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
