@@ -19,9 +19,25 @@ namespace API.Controllers
         
         [Route("all")]
         [HttpPost]
-        public Response<List<Transaction>> GetTransactions()
+        public Response<List<TransactionModel>> GetTransactions()
         {
-            return new Response<List<Transaction>>("success", db.Transactions.ToList(), "", 1);
+           List<TransactionModel> res = new List<TransactionModel>();
+            var r = db.Transactions.ToList();
+
+            foreach (var item in r)
+            {
+                res.Add(new TransactionModel()
+                {
+                    CustomerId = db.Customers.FirstOrDefault(x=>x.Id==item.CustomerId).Name,
+                    Date = item.Date.Date.ToShortDateString(),
+                    ConvertExceedingAmountToFree = item.ConvertExceedingAmountToFree,
+                    PetrolAmount = item.PetrolAmount,
+                    FreeAmount = item.FreeAmount,
+                    TotalPrice = item.TotalPrice
+                });
+            }
+
+            return new Response<List<TransactionModel>>("success", res, "", 1);
         }
 
         // GET: api/Transactions/5
@@ -83,11 +99,12 @@ namespace API.Controllers
             }
             Transaction transaction = new Transaction
             {
-                CustomerId = transactionModel.CustomerId,
+                CustomerId = db.Customers.FirstOrDefault(x => x.Name.Equals(transactionModel.CustomerId)).Id,
                 Date = DateTime.Parse(transactionModel.Date),
                 PetrolAmount = transactionModel.PetrolAmount,
                 FreeAmount = transactionModel.FreeAmount,
                 ConvertExceedingAmountToFree = transactionModel.ConvertExceedingAmountToFree
+                //Customer = db.Customers.FirstOrDefault(x => x.Name.Equals(transactionModel.Customer)),
 
             };
             var _5days = DateTime.Today.AddDays(-5);
@@ -131,7 +148,7 @@ namespace API.Controllers
             transaction.TotalPrice = Transaction.calculateTotalPrice(transaction.PetrolAmount, transaction.FreeAmount);
             db.Transactions.Add(transaction);
             db.SaveChanges();
-            return new Response<Transaction>("success", transaction, "", 1);
+            return new Response<Transaction>("success", null, "", 1);
         }
 
         // DELETE: api/Transactions/5

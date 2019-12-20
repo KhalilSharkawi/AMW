@@ -1,4 +1,4 @@
-package com.MS.applications.UnlimitedServicesDriver.Transactions;
+package com.MS.applications.UnlimitedServicesDriver.MyActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,23 +10,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
+import com.MS.applications.UnlimitedServicesDriver.Activities.AdminMainActivity;
 import com.MS.applications.UnlimitedServicesDriver.R;
 
 /**
- * An activity representing a single Transaction detail screen. This
+ * An activity representing a single Report detail screen. This
  * activity is only used on narrow width devices. On tablet-size devices,
  * item details are presented side-by-side with a list of items
- * in a {@link TransactionListActivity}.
+ * in a {@link ReportListActivity}.
  */
-public class TransactionDetailActivity extends AppCompatActivity {
+public class ReportDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transaction_detail);
+        setContentView(R.layout.activity_report_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
-
+        toolbar.setTitle(getTitle());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),ReportListActivity.class));
+            }
+        });
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -55,12 +64,12 @@ public class TransactionDetailActivity extends AppCompatActivity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(TransactionDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(TransactionDetailFragment.ARG_ITEM_ID));
-            TransactionDetailFragment fragment = new TransactionDetailFragment();
+            arguments.putString(ReportDetailFragment.ARG_ITEM_ID,
+                    getIntent().getStringExtra(ReportDetailFragment.ARG_ITEM_ID));
+            ReportDetailFragment fragment = new ReportDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.transaction_detail_container, fragment)
+                    .add(R.id.report_detail_container, fragment)
                     .commit();
         }
     }
@@ -75,7 +84,7 @@ public class TransactionDetailActivity extends AppCompatActivity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            navigateUpTo(new Intent(this, TransactionListActivity.class));
+            navigateUpTo(new Intent(this, ReportListActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

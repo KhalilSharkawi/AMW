@@ -11,7 +11,7 @@ public class Transaction implements Serializable {
     private int id;
 
     @SerializedName("CustomerId")
-    private int customerId;
+    private String customerId;
 
     @SerializedName("Date")
     private String date;
@@ -28,11 +28,11 @@ public class Transaction implements Serializable {
     @SerializedName("ConvertExceedingAmountToFree")
     private boolean convertExceedingAmountToFree;
 
-    public int getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 

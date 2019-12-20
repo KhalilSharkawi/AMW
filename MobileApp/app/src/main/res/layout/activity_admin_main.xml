@@ -13,18 +13,36 @@
         tools:layout_editor_absoluteX="29dp"
         tools:layout_editor_absoluteY="152dp">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+
         <Button
             android:id="@+id/btnCustomers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="50dp"
             android:onClick="customers"
             android:text="Customers" />
 
         <Button
+            android:id="@+id/btnreport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="50dp"
+            android:onClick="report"
+            android:text="report" />
+        <Button
             android:id="@+id/add_customerbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="50dp"
             android:onClick="on_click_createCustomer"
             android:text="Transactions" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

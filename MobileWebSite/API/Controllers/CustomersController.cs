@@ -85,7 +85,7 @@ namespace API.Controllers
             db.Customers.Add(Customer);
             db.SaveChanges();
 
-            return new Response<Customer>("success", Customer, "", 1);
+            return new Response<Customer>("success", null, "", 1);
         }
 
         // DELETE: api/Customers/5
@@ -115,9 +115,9 @@ namespace API.Controllers
             if (c != null)
             {
                 var _5day = DateTime.Today.AddDays(-5);
-                var _5daysAllownce = 40 - db.Transactions.Where(x => x.CustomerId == c.Id && x.Date >= _5day).Sum(x => x.PetrolAmount);
-                var _monthlyAllownce = 100 - db.Transactions.Where(x => x.CustomerId == c.Id && x.Date.Month == DateTime.Now.Month).Sum(x => x.PetrolAmount);
-                var free = db.Transactions.Where(x => x.CustomerId == c.Id).Sum(x => x.FreeAmount);
+                var _5daysAllownce = 40 - db.Transactions.Where(x => x.CustomerId == c.Id && x.Date >= _5day).Select(x => x.PetrolAmount).DefaultIfEmpty(0).Sum();
+                var _monthlyAllownce = 100 - db.Transactions.Where(x => x.CustomerId == c.Id && x.Date.Month == DateTime.Now.Month).Select(x => x.PetrolAmount).DefaultIfEmpty(0).Sum();
+                var free = db.Transactions.Where(x => x.CustomerId == c.Id).Select(x => x.FreeAmount).DefaultIfEmpty(0).Sum();
                 var r = new CustomerInfo()
                 {
                     _5daysAllownce = _5daysAllownce,

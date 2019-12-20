@@ -48,7 +48,7 @@ namespace API.Models
     public class TransactionModel
     {
         [Required]
-        public int CustomerId { get; set; }
+        public String CustomerId { get; set; }
         [Required]
         public String Date { get; set; }
         [Required]
@@ -58,5 +58,6 @@ namespace API.Models
         [DefaultValue(0)]
         public float FreeAmount { get; set; }
         public bool ConvertExceedingAmountToFree { get; set; }
+        public float TotalPrice { get; set; }
     }
 }

@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Switch;
 
@@ -40,9 +41,15 @@ public class AddTransactionActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     Transaction c = new Transaction();
-                    c.setCustomerId(Integer.parseInt(((EditText) findViewById(R.id.Customer)).getText().toString()));
+                    c.setCustomerId((((EditText) findViewById(R.id.Customer)).getText().toString()));
                     c.setConvertExceedingAmountToFree(((Switch) findViewById(R.id.ConvertExceedingAmountToFree)).isChecked());
-                    c.setDate(((EditText) findViewById(R.id.Date)).getText().toString());
+                    String date =String.format ("%s/%s/%s",
+                            ((DatePicker) findViewById(R.id.Date)).getYear(),
+                            ((DatePicker) findViewById(R.id.Date)).getMonth(),
+                            ((DatePicker) findViewById(R.id.Date)).getDayOfMonth()
+                            );
+
+                    c.setDate(date);
                     c.setPetrolAmount(Integer.parseInt(((EditText) findViewById(R.id.PetrolAmount)).getText().toString()));
 
 
@@ -52,6 +59,7 @@ public class AddTransactionActivity extends AppCompatActivity {
                     jsonParam.put("ConvertExceedingAmountToFree", c.isConvertExceedingAmountToFree());
                     jsonParam.put("Date", c.getDate());
                     jsonParam.put("PetrolAmount", c.getPetrolAmount());
+                    jsonParam.put("FreeAmount", 0);
 
 
                     new SendGetJsonApi(AddTransactionActivity.this, "/api/api/transactions/create", jsonParam,
@@ -66,10 +74,10 @@ public class AddTransactionActivity extends AppCompatActivity {
                                         } else {
                                             String error_des = userInfoAPIResponse != null ? userInfoAPIResponse.getErrorDes() : null;
                                             if (!(error_des != null && error_des.equals(""))) {
-                                                Snackbar.make(view, "Error", Snackbar.LENGTH_LONG)
+                                                Snackbar.make(view, error_des, Snackbar.LENGTH_LONG)
                                                         .setAction("Action", null).show();
                                             } else {
-                                                Snackbar.make(view, error_des, Snackbar.LENGTH_LONG)
+                                                Snackbar.make(view, "Error", Snackbar.LENGTH_LONG)
                                                         .setAction("Action", null).show();
                                             }
                                         }

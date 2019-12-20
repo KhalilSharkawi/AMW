@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 
+import com.MS.applications.UnlimitedServicesDriver.Activities.AdminMainActivity;
+import com.MS.applications.UnlimitedServicesDriver.Activities.CustomersListActivity;
 import com.MS.applications.UnlimitedServicesDriver.Api.CallBackListener;
 import com.MS.applications.UnlimitedServicesDriver.Api.SendGetJsonApi;
 import com.MS.applications.UnlimitedServicesDriver.Models.APIResponse;
@@ -29,6 +31,15 @@ public class AddCustomerActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        toolbar.setTitle("Add Customer");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),CustomersListActivity.class));
+            }
+        });
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

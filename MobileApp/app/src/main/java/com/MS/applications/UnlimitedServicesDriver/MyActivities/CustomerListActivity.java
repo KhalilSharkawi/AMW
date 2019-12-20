@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.MS.applications.UnlimitedServicesDriver.Activities.AdminMainActivity;
+import com.MS.applications.UnlimitedServicesDriver.Activities.LoginActivity;
 import com.MS.applications.UnlimitedServicesDriver.Api.CallBackListener;
 import com.MS.applications.UnlimitedServicesDriver.Api.SendGetJsonApi;
 import com.MS.applications.UnlimitedServicesDriver.Models.APIResponse;
@@ -55,6 +56,15 @@ public class CustomerListActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),AdminMainActivity.class));
+            }
+        });
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

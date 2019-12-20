@@ -65,11 +65,11 @@ public class LoginActivity extends GodFatherActivity {
             Reslog = findViewById(R.id.Reslogin);
         }
         try {
-            email = getIntent().getStringExtra("email");
-            password = getIntent().getStringExtra("password");
-            if (!email.equals("") && !password.equals("")) {
-                isFromRegister = true;
-            }
+//            email = getIntent().getStringExtra("email");
+//            password = getIntent().getStringExtra("password");
+//            if (!email.equals("") && !password.equals("")) {
+//                isFromRegister = true;
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,6 +1,9 @@
 package com.MS.applications.UnlimitedServicesDriver.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,6 +29,18 @@ public class MainActivity extends GodFatherActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
         String email = getIntent().getStringExtra("email");
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle(getTitle());
+        toolbar.setTitle(getTitle());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            }
+        });
 //        UserId = readSharedPreferenceInt(this, USER_ID);
 //        String Name = readSharedPreferenceString(this, FIRST_NAME);
 //        number = findViewById(R.id._id);
@@ -66,12 +81,12 @@ public class MainActivity extends GodFatherActivity {
                                 _monthly.setText(ci.get_monthlyAllownce() + " L");
                                 free.setText(ci.get_free() + " L");
                             } else {
-                                TextView error = findViewById(R.id.textView_errorMsg);
-                                error.setText(userInfoAPIResponse.getErrorDes());
+                                Snackbar.make(v, userInfoAPIResponse.getErrorDes(), Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
                             }
                         } catch (Exception e) {
-                            TextView error = findViewById(R.id.textView_errorMsg);
-                            error.setText(e.getMessage());
+                            Snackbar.make(v, e.getMessage(), Snackbar.LENGTH_LONG)
+                                    .setAction("Action", null).show();
                         }
                     }
 

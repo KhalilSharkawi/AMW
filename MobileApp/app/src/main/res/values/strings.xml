@@ -107,4 +107,7 @@
     <string name="title_activity_add_customer">AddCustomerActivity</string>
     <string name="title_transaction_list">Transactions</string>
     <string name="title_transaction_detail">Transaction Detail</string>
+    <string name="title_activity_report">ReportActivity</string>
+    <string name="title_report_list">Reports</string>
+    <string name="title_report_detail">Report Detail</string>
 </resources>

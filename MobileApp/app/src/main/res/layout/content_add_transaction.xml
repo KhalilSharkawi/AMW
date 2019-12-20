@@ -22,12 +22,12 @@
             android:padding="10dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
+        <DatePicker
             android:id="@+id/Date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Date "
-            android:inputType="datetime"
+            android:datePickerMode="calendar"
             android:padding="10dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 

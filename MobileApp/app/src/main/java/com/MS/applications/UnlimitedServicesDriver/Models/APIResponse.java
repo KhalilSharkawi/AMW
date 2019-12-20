@@ -12,7 +12,7 @@ public class APIResponse<T> implements Serializable {
     @SerializedName("content")
     private T content;
 
-    @SerializedName("error_des")
+    @SerializedName("errorDes")
     private String errorDes;
 
     @SerializedName("error_code")
